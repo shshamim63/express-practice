@@ -4,7 +4,16 @@ const express = require('express')
 const app = express()
 const publicDirectoryPath = path.join(__dirname,"../public")
 
+app.set('view engine', 'hbs')
+
 app.use(express.static(publicDirectoryPath))
+
+app.get('', (req, res) => {
+  res.render('index', {
+    title: "New Content",
+    from: 'hbs'
+  })
+})
 
 app.get('/help',(req, res) => {
   res.send("I am from help")
