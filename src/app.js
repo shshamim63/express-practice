@@ -35,6 +35,13 @@ app.get('/info',(req, res) => {
   })
 })
 
+app.get('/info/*', (req, res) => {
+  res.send('Info does not contain a hello template')
+})
+
+app.get('*', (req, res) => {
+  res.send("404 page")
+})
 
 app.listen(3000, () => {
   console.log('Server is listening in port 3000')
