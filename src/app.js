@@ -40,7 +40,11 @@ app.get('/info/*', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-  res.send("404 page")
+  res.render('404', {
+    from: "Error page",
+    errorMessages: "there is no content for this scenario",
+    footer: "this is for the error link"
+  })
 })
 
 app.listen(3000, () => {
