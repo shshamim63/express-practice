@@ -36,7 +36,11 @@ app.get('/info',(req, res) => {
 })
 
 app.get('/info/*', (req, res) => {
-  res.send('Info does not contain a hello template')
+  res.render('404', {
+    from: "Info",
+    errorMessages: "Info does not contains such routes",
+    footer: "Please try valid route"
+  })
 })
 
 app.get('*', (req, res) => {
